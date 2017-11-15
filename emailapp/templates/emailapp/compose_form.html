@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+
+        #home,#but1{
+            margin:5px;
+        }
+        #id_sendto{
+            border-radius:20px;
+            padding:10px;
+            border: 1px solid black;
+            width:100%;
+            margin:10px;
+        }
+        #id_fromemail,#id_subject{
+        width:100%;
+        border-radius:20px;
+        height:1px;
+        margin:10px;
+        border:1px solid black;
+        padding:18px;
+    }
+    textarea{
+        width:100%;
+        border-radius:20px;
+        margin:10px;
+        border:1px solid black;
+        height:150px;
+        padding:20px;
+    }
+
+
+    }
+    #butt{
+    width:10%;
+    border-radius: 20px;
+    }
+    hr{
+    border:2px solid black;
+    }
+
+         textarea:active,#id_sendto:active,#id_fromemail:active,#id_subject:active{
+            outline: none;
+        }
+        textarea:focus,#id_sendto:focus,#id_fromemail:focus,#id_subject:focus{
+            outline:none;
+            }
+
+    #success_butt{
+        visibility: hidden;
+    }
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+     <div class="row" id="new_col">
+
+
+
+                 <div class="col-md-12">
+                    <form method="post" enctype="multipart/form-data">
+                        <h1><strong>COMPOSE</strong></h1><hr/>
+                        <div id="button1">
+                        <input type="button" class="btn btn-success" onclick="location.href='/home';" id="home" value="Home"/>
+                        <input type="button" class="btn btn-warning" onclick="location.href='/logout';" id="but1" value="Logout"/>
+                        </div>
+                        {% csrf_token %}
+                            <table>
+                                {{form.as_table}}
+                            </table>
+                            <div id="button"p>
+                                <input id="demo_butt" class="btn btn-info" type ="button" onclick="check()" value="submit">
+                                <input id="success_butt" class="btn btn-success" type ="submit" class="submit">
+                        </div>
+                        </form>
+
+    </div>
+</div>
+    </div>
+
+
+<script>
+    function check(){
+        var check_string=["bomb","exploid","rdx","RDX","war"];
+        content=document.getElementById('id_content').value;
+        content=content.split(" ");
+        var c=0;
+        for(i in check_string){
+            for(j in content){
+                if(check_string[i] === content[j]){
+                    c+=1;
+                }
+            }
+        }
+
+        if(c==0){
+            x=document.getElementById('success_butt');
+            x.click();
+        }else{
+            alert("your mail consists of offensive words");
+        }
+    }
+</script>
+</body>
+</html>

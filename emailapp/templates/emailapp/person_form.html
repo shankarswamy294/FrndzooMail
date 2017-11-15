@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+
+
+
+        #home{
+                margin-top:50px;
+                margin-left:40px;
+
+            }
+
+            .button{
+                text-align:center;
+                margin-left:20px;
+                margin-bottom:20px;
+            }
+
+            #id_email,#id_name{
+             background-color:transparent;
+             border:2px solid white;
+             border-radius:20px;
+             height:35px;
+             padding-left:20px;
+             margin-left:10px;
+             margin-top:20px;
+            }
+
+            #but{
+            margin:5px;
+            }
+
+
+        #id_email:focus,#id_name:focus{
+            outline: none;
+        }
+
+        #id_email:active,#id_name:active{
+            outline: none;
+        }
+
+
+         #start{
+            padding:20px;
+            border: 0px solid white;
+            border-radius:20px;
+            margin-top:150px;
+            -webkit-box-shadow: 1px 0px 26px 0px rgba(247,239,247,1);
+            -moz-box-shadow: 1px 0px 26px 0px rgba(247,239,247,1);
+            box-shadow: 1px 0px 26px 0px rgba(247,239,247,1);
+         }
+
+         body{
+         color:white;
+         background:url({% static 'emailapp/pdetails.jpg' %}) no-repeat;
+         width:100%;
+         height:100vh   ;
+         }
+
+
+    </style>
+
+</head>
+<body>
+<!--
+<div class="container">
+    <div class="row" id="new_col">
+                 <div class="col-md-4">
+                 </div>
+
+
+        <div class="col-md-4" id="about_para">
+
+            <form method="post" enctype="multipart/form-data">
+                <h1>Personal Details</h1>
+                    {% csrf_token %}
+                    <table>
+                        {{form.as_table}}
+                    </table>
+                    <div id="button">
+                        <input class="btn btn-success" type ="submit" id="but" class="submit">
+                    </div>
+            </form>
+
+        </div>
+
+        <div class="col-md-4">
+                 </div>
+    </div>
+    -->
+
+
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-4"></div>
+        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+
+            <form method="post">
+                <div id="start">
+                <h1>Personal Details</h1>
+                    {% csrf_token %}
+                    <table>
+                        {{form.as_table}}
+                    </table>
+                    <div id="button">
+                        <input class="btn btn-success" type ="submit" id="but" class="submit">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>

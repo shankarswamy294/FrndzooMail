@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+ #home{
+        margin-top:50px;
+        margin-left:40px;
+
+    }
+
+    .button{
+        text-align:center;
+        margin-left:20px;
+        margin-bottom:20px;
+    }
+
+    #id_password1,#id_password2,#id_username{
+     background-color:transparent;
+     border:2px solid white;
+     border-radius:20px;
+     height:35px;
+     padding-left:20px;
+     margin-left:10px;
+     margin-top:20px;
+    }
+
+    #newbut,#newbut1{
+    margin:5px;
+    }
+
+    #id_password:active,#id_username:active{
+            outline: none;
+        }
+        #id_password:focus,#id_username:focus{
+            outline:none;
+            }
+   ul{
+   list-decoration:none;
+   }
+ #start{
+     padding-top:20px;
+     padding-bottom:20px;
+    padding-left:20px;
+    border: 0px solid white;
+    border-radius:20px;
+    margin-top:50px;
+    -webkit-box-shadow: 1px 0px 26px 0px rgba(247,239,247,1);
+    -moz-box-shadow: 1px 0px 26px 0px rgba(247,239,247,1);
+    box-shadow: 1px 0px 26px 0px rgba(247,239,247,1);
+ }
+
+ body{
+ color:white;
+ background:url({% static 'emailapp/signup1.jpg' %}) no-repeat;
+ width:100%;
+ height:100vh   ;
+ }
+
+    </style>
+</head>
+<body>
+<!--
+    <div class="container">
+  <h2><strong>Sign up</strong></h2><hr>
+    <input type="button" class="btn btn-responsive btn-warning" onclick="location.href='/logout';" id="but1" value="back"/>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button id="button" class="btn btn-responsive btn-info" type="submit">Sign up</button>
+  </form>
+  -->
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <input type="button" class="btn btn-success" onclick="location.href='/';" id="home" value="Home"/>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4"></div>
+        <div class="col-md-4 col-sm-4 col-xs-4"></div>
+    </div>
+</div>
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-2 col-sm-2 col-xs-2"></div>
+        <div class="col-md-8 col-sm-8 col-xs-8">
+
+            <form method="post">
+                <div id="start">
+                <h1>SignUp</h1>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button id="button" class="btn btn-responsive btn-info" type="submit">Sign up</button>
+                </div>
+
+            </form>
+
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-2"></div>
+    </div>
+</div>
+  </div>
+</body>
+</html>

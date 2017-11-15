@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        #butt{
+            margin-top:20%;
+            text-align: center;
+        }
+        #but1,#but2,#but3{
+        margin:20px;
+        }
+
+
+        #compose,#logout,#inbox{
+            height:100px;
+            margin-left:130px;
+        }
+        #welcome{
+        margin-top:140px;
+        margin-bottom:40px;
+        }
+
+        @media (max-width:600px){
+                    #compose,#logout,#inbox{
+            height:100px;
+            margin-left:130px;
+        }
+        #welcome{
+        margin-top:0px;
+        margin-bottom:0px;
+        }
+        }
+    </style>
+</head>
+<body>
+<div class="container text-center" id="welcome">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Welcome back....!!</h1>
+            </div>
+            </div>
+    </div>
+
+<div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <img id="inbox" src="{% static 'emailapp/inbox_icon.png' %}" class="img-responsive">
+                <input type="button" class="btn btn-success" onclick="location.href='/inbox';" id="but1" value="Inbox"/>
+            </div>
+
+            <div class="col-md-4">
+                <img id="compose" src="{% static 'emailapp/compose_icon.png' %}" class="img-responsive">
+                <input type="button" class="btn btn-info" onclick="location.href='/compose';" id="but2" value="Compose"/>
+            </div>
+
+            <div class="col-md-4">
+                <img id="logout" src="{% static 'emailapp/logout_icon.png' %}" class="img-responsive">
+                <input type="button"  class="btn btn-warning" onclick="location.href='/logout';" id="but3" value="Logout"/>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

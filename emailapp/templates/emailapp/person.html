@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1><b>HII GUYS...!!!</b></h1>
+<input type="button"  onclick="location.href='/logout';" id="but1" value="Logout"/>
+    {% for i in serializer.data %}
+       name :  {{ i.name }} <br><br>
+       email : {{ i.email }} <br><br>
+    {% endfor %}
+</body>
+</html>

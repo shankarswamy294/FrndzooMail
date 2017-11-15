@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inbox</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        #button{
+            margin-left:80%;
+        }
+        #home,#but1{
+            margin:10px;
+        }
+        #email_element{
+        margin-bottom:10px;
+        border-radius:20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+<h1>INBOX</h1>
+<hr/>
+    <div id="button">
+<input type="button" class="btn btn-success" onclick="location.href='/home';" id="home" value="Home"/>
+<input type="button" class="btn btn-warning" onclick="location.href='/logout';" id="but1" value="Logout"/>
+    </div>
+<ul style="list-style-type: none;">
+    <li>
+
+        {% csrf_token %}
+    {% for i in serializer.data reversed %}
+        <div id="email_element" class="panel-body bg-info">
+        From email: {{ i.fromemail }}<br><br>
+        Subject: {{ i.subject }}<br><br>
+        Content :  {{ i.content }} <br><br>
+        <div id="x{{ i.id }}"></div>
+        <input type="button" class="btn btn-info" id="delete{{ i.id }}" onclick="location.href='/delete/{{ i.id }}';" value="Delete">
+
+        </div>
+    {% endfor %}
+    </li>
+</ul>
+</div>
+
+
+<script>
+   /* var flag=0;
+    function dodelete(x){
+
+        console.log("--->",x)
+        var xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            document.getElementById("delete"+x).style.display = 'none';
+            document.getElementById("x"+x).innerHTML = this.responseText;
+        }
+        };
+        xhttp.open("GET","/delete/"+x,true);
+        xhttp.send();
+        flag = 1;
+
+    console.log("comes here");
+    document.getElementById("do_this").onClick
+    var xhttp=new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+        document.getElementById("delete"+x).style.display = 'none';
+        document.getElementById("x"+x).innerHTML = this.responseText;
+    }
+    };
+    xhttp.open("DELETE","/delete/"+x,true);
+    xhttp.send();
+    }
+
+*/
+</script>
+
+
+</body>
+</html>
